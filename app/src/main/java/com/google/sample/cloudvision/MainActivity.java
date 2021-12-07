@@ -34,6 +34,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -78,9 +79,10 @@ public class MainActivity extends AppCompatActivity {
     public static final int CAMERA_PERMISSIONS_REQUEST = 2;
     public static final int CAMERA_IMAGE_REQUEST = 3;
 
-    private TextView mImageDetails;
+    private static Button mUnityButton;
+    private static TextView mImageDetails;
     private static TextView explain;
-    private ImageView mMainImage;
+    private static ImageView mMainImage;
     private static MediaPlayer mp;
     private static String correct;
     boolean flag = true;
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         mImageDetails = findViewById(R.id.image_details);
         mMainImage = findViewById(R.id.main_image);
         explain =  findViewById(R.id.explain);
+        mUnityButton=findViewById(R.id.unityButton);
         context=this;
         nextProblem();
     }
@@ -143,7 +146,11 @@ public class MainActivity extends AppCompatActivity {
         correct=(String)problems[problemNumber-1].get("word");
         // 유니티 설정
 
+        mMainImage.setImageResource(0);
+
         problemNumber+=1;
+
+        mImageDetails.setText("");
     }
 
 
@@ -154,6 +161,13 @@ public class MainActivity extends AppCompatActivity {
     public void onClickNext(View view){
         if (problemNumber-1<problems.length)
             nextProblem();
+    }
+
+    public void startUnity(View view){
+        //버튼 누르면 유니티 실행
+//        Intent intent = new Intent(getApplicationContext(),유니티실행 activity);
+//        startActivity(intent);
+
     }
 
     public void startGalleryChooser() {
@@ -356,6 +370,7 @@ public class MainActivity extends AppCompatActivity {
                     sb.append("정답입니다");
                     imageDetail.setText(sb.toString());
                     //만약 맞으면 유니티 실행
+                    mUnityButton.setVisibility(View.VISIBLE);
                 }
                 else{
                     sb.append("오답입니다");

@@ -40,9 +40,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/outline_volume_up_black_24"
                     android:onClick="onClickSound"
-                    />
+                    android:src="@drawable/outline_volume_up_black_24" />
 
 
             </LinearLayout>
@@ -59,16 +58,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="right">
+
+            <Button
+                android:id="@+id/unityButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="right"
+                android:text="Unity"
+                android:visibility="invisible"
+                android:onClick="startUnity"/>
 
             <ImageButton
                 android:id="@+id/nextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_weight="1"
-                android:src="@drawable/outline_navigate_next_24"
+
                 android:onClick="onClickNext"
-                />
+                android:src="@drawable/outline_navigate_next_24" />
+
+
+        </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>
