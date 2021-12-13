@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         problemNumber+=1;
 
         mImageDetails.setText("");
+        mUnityButton.setVisibility(View.INVISIBLE);
     }
 
 
